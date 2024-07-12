@@ -6,8 +6,6 @@ class Recipe(models.Model):
     time_to_complete = models.CharField(max_length=12)
     description = models.CharField(max_length=500)
     img_ref = models.CharField(max_length=150)
-    # ingredient_list = models.OneToOneField(Ingredient_List, related_name='ingredients_list', null=True, on_delete=models.CASCADE)
-    # instruction_list = models.OneToOneField(Instruction_List, null=True, related_name='instructions_list', on_delete=models.CASCADE)
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=32)
