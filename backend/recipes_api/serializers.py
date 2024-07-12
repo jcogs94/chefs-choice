@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from .models import Recipe, Ingredient_List, Ingredient, Instruction
+from .models import Recipe, Ingredient, Ingredient_List, Instruction, Instruction_List
 
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
         fields = ['name', 'type']
 
-class Ingredient_ListSerializer(serializers.ModelSerializer):
+class IngredientListSerializer(serializers.ModelSerializer):
     ingredients = IngredientSerializer(many=True)
     
     class Meta:
@@ -18,9 +18,16 @@ class InstructionSerializer(serializers.ModelSerializer):
         model = Instruction
         fields = ['text']
 
-class RecipeSerializer(serializers.ModelSerializer):
-    ingredients = Ingredient_ListSerializer(many=True)
+class InstructionListSerializer(serializers.ModelSerializer):
     instructions = InstructionSerializer(many=True)
+
+    class Meta:
+        model = Instruction_List
+        fields = ['instructions']
+
+class RecipeSerializer(serializers.ModelSerializer):
+    ingredients = IngredientListSerializer(many=True)
+    instructions = InstructionListSerializer(many=True)
     
     class Meta:
         model = Recipe
