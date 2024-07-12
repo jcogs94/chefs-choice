@@ -13,7 +13,8 @@ class Ingredient(models.Model):
 
 class Ingredient_List(models.Model):
     ingredients = models.ManyToManyField(Ingredient)
+    recipe = models.OneToOneField(Recipe, null=True, related_name='ingredients', on_delete=models.CASCADE)
 
 class Instruction(models.Model):
     text = models.CharField(max_length=500)
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, related_name='instructions', on_delete=models.CASCADE)
