@@ -8,6 +8,8 @@ class Recipe(models.Model):
     img_ref = models.CharField(max_length=150)
 
 class Ingredient(models.Model):
+    amount = models.CharField(max_length=15)
+    measurement = models.CharField(max_length=15)
     name = models.CharField(max_length=50)
 
 class Ingredient_List(models.Model):
