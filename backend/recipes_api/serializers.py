@@ -34,9 +34,21 @@ class InstructionListSerializer(serializers.ModelSerializer):
         return [instruction.text for instruction in instructions]
 
 class RecipeSerializer(serializers.ModelSerializer):
-    ingredients = IngredientListSerializer(source='ingredient_list')
-    instructions = InstructionListSerializer(source='instruction_list')
+    ingredients = IngredientListSerializer(source='ingredient_list', required=False)
+    instructions = InstructionListSerializer(source='instruction_list', required=False)
     
     class Meta:
         model = Recipe
         fields = ['id', 'name', 'style', 'time_to_complete', 'description', 'img_ref', 'ingredients', 'instructions']
+    
+    def create(self, validated_data):
+        recipe = Recipe.objects.create(
+            name=validated_data['name'],
+            style=validated_data['style'],
+            time_to_complete=validated_data['time_to_complete'],
+            description=validated_data['description'],
+            img_ref=validated_data['img_ref']
+        )
+        Ingredient_List.objects.create(recipe=recipe)
+        Instruction_List.objects.create(recipe=recipe)
+        return recipe

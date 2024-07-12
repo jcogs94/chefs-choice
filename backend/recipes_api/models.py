@@ -8,7 +8,7 @@ class Recipe(models.Model):
     img_ref = models.CharField(max_length=150)
 
 class Ingredient(models.Model):
-    name = models.CharField(max_length=32)
+    name = models.CharField(max_length=50)
 
 class Ingredient_List(models.Model):
     recipe = models.OneToOneField(Recipe, related_name='ingredient_list', null=True, on_delete=models.CASCADE)
