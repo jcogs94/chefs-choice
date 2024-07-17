@@ -1,4 +1,5 @@
 #about {
+    width: 100%;
     padding: 30px 15px;
 
     display: flex;
@@ -8,5 +9,6 @@
     gap: 20px;
 
     text-align: center;
+    color: var(--dark);
     background-color: var(--lighter);
 }

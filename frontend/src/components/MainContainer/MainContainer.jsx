@@ -1,5 +1,6 @@
 import Hero from './Hero/Hero.jsx'
 import About from './About/About.jsx'
+import Socials from './Socials/Socials.jsx'
 import './MainContainer.css'
 
 const MainContainer = () => {
@@ -7,6 +8,7 @@ const MainContainer = () => {
         <main>
             <Hero />
             <About />
+            <Socials />
         </main>
     </>
 }

@@ -1,0 +1,34 @@
+#socials {
+    width: 100%;
+    padding: 30px 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    text-align: center;
+    color: var(--dark);
+    background-color: var(--lighter);
+}
+
+#social-icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    > p {
+        width: 50px;
+        height: 50px;
+        
+        text-align: center;
+        vertical-align: middle;
+
+        border: 1px solid black;
+        border-radius: 100%;
+    }
+}
