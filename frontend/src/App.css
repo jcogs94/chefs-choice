@@ -4,10 +4,10 @@
 }
 
 #root {
-    /* --dark: #1A2130;
-    --lighter: #5A72A0;
-    --lightest: #FDFFE2;
-    --highlight: #83B4FF; */
+    --dark: #206A5D;
+    --lighter: #BFDCAE;
+    --lightest: #F1F1E8;
+    --highlight: #81B214;
         
     min-width: 100vw;
     min-height: 100vh;
@@ -18,5 +18,5 @@
     justify-items: flex-start;
     gap: 40px;
 
-    /* background-color: var(--dark); */
+    background-color: var(--lightest);
 }
