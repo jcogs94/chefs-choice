@@ -5,7 +5,7 @@ const Socials = () => {
     
     return <>
         <div id="socials">
-            <h3>Check Us Out On Social Media!</h3>
+            <h3>Check Out Our Socials!</h3>
             <div id="social-icons">
                 {socialIcons.map( (icon) => 
                     <p>{icon}</p>

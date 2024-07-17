@@ -1,12 +1,19 @@
+import { Route, Routes } from 'react-router-dom'
 import Nav from './components/Nav/Nav.jsx'
-import MainComponent from './components/MainContainer/MainContainer.jsx'
+import Home from './components/Home/Home.jsx'
+import Recipes from './components/Recipes/Recipes.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import './App.css'
 
 const App = () => {
     return <>
         <Nav />
-        <MainComponent />
+        <main>
+            <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/recipes' element={<Recipes />} />
+            </Routes>
+        </main>
         <Footer />
     </>
 }
