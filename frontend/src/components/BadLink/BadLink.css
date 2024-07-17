@@ -1,0 +1,17 @@
+#bad-link-heading {
+    margin-top: 50px;
+}
+
+#bad-link-p {
+    width: 100%;
+    padding: 20px 15px;
+    text-align: center;
+    
+    color: var(--lighter);
+    background-color: var(--dark);
+    
+    > a {
+        text-decoration: none;
+        color: var(--highlight);
+    }
+}

@@ -2,7 +2,7 @@ import './Recipes.css'
 
 const Recipes = () => {
     return <>
-        <h1>Recipes</h1>
+        <h1 id='recipes-header'>Recipes</h1>
     </>
 }
 
