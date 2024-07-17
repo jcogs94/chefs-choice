@@ -9,7 +9,7 @@
     --lightest: #F1F1E8;
     --highlight: #81B214;
         
-    min-width: 100vw;
+    min-width: 100%;
     min-height: 100vh;
 
     overflow: clip;
@@ -23,7 +23,7 @@
 }
 
 main {
-    width: 100%;
+    width: 100vw;
     margin-bottom: 150px;
     
     display: flex;

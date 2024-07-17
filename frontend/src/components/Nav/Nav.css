@@ -21,6 +21,7 @@ nav {
             padding: 8px 12px;
             color: var(--dark);
             border-color: var(--highlight);
+            cursor: pointer;
         }
     }
 
