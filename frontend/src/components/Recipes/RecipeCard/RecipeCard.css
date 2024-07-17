@@ -9,6 +9,11 @@
 
     background-color: var(--lighter);
     
+    > a {
+        color: var(--dark);
+        text-decoration: none;
+    }
+
     > img {
         max-width: 100%;
     }
