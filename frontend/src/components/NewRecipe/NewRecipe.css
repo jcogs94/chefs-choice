@@ -24,6 +24,10 @@ input {
         display: flex;
         flex-direction: column;
         gap: 5px;
+
+        > input {
+            padding: 4px;
+        }
     }
 
     > button {
@@ -48,13 +52,13 @@ input {
     width: 100%;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 
-    > input {
+    > input, > textarea {
         width: calc(100% - 25px);
         padding: 2px;
     }
-
 }
 
 .remove-ingredient, .remove-instruction {
@@ -108,4 +112,12 @@ input {
 
 #add-img-input {
     margin-top: 10px;
+}
+
+.error {
+    margin-top: 5px;
+    text-align: center;
+    font-size: smaller;
+    color: red;
+    font-style: italic;
 }

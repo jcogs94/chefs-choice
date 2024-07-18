@@ -5,7 +5,7 @@ class Recipe(models.Model):
     style = models.CharField(max_length=50)
     time_to_complete = models.CharField(max_length=12)
     description = models.CharField(max_length=500)
-    img_ref = models.CharField(max_length=150)
+    img_ref = models.CharField(max_length=250)
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=50)

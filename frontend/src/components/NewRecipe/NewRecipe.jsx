@@ -10,7 +10,7 @@ import handleSubmit from './utils/handleSubmit.js'
 import './NewRecipe.css'
 
 const NewRecipe = () => {
-    const [newRecipe, setNewRecipe] = useState({
+    const initForm = {
         name: '',
         style: '',
         time_to_complete: '',
@@ -18,8 +18,11 @@ const NewRecipe = () => {
         img_ref: 'none',
         ingredients: [''],
         instructions: ['']
-    })
+    }
+    
     const [addImg, setAddImg] = useState(false)
+    const [errors, setErrors] = useState(initForm)
+    const [newRecipe, setNewRecipe] = useState(initForm)
         
     return <>
         <h1 id='new-recipe-heading'>Add Your Recipe</h1>
@@ -27,69 +30,67 @@ const NewRecipe = () => {
             <div>
                 <label htmlFor="name">Name:</label>
                 <input id="name" name="name" type="text" value={newRecipe.name}
-                    onChange={(e) => handleChange(e, newRecipe, setNewRecipe)} />
-                {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
+                    onChange={(e) => handleChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
+                { errors.name && <p className='error'>{errors.name}</p> }
             </div>
             <div>
                 <label htmlFor="style">Style:</label>
                 <input id="style" name="style" type="text" value={newRecipe.style}
-                    onChange={(e) => handleChange(e, newRecipe, setNewRecipe)} />
-                {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
+                    onChange={(e) => handleChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
+                { errors.style && <p className='error'>{errors.style}</p> }
             </div>
             <div>
                 <label htmlFor="time_to_complete">Total Time:</label>
                 <input id="time_to_complete" name="time_to_complete" type="text"
                     value={newRecipe.time_to_complete}
-                    onChange={(e) => handleChange(e, newRecipe, setNewRecipe)} />
-                {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
+                    onChange={(e) => handleChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
+                { errors.time_to_complete && <p className='error'>{errors.time_to_complete}</p> }
             </div>
             <div>
                 <label htmlFor="description">Description:</label>
-                <input id="description" name="description" type="text"
+                <textarea id="description" name="description" rows="8"
                     value={newRecipe.description}
-                    onChange={(e) => handleChange(e, newRecipe, setNewRecipe)} />
-                {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
+                    onChange={(e) => handleChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
+                { errors.description && <p className='error'>{errors.description}</p> }
             </div>
             <div>
                 <label htmlFor="ingredients">Ingredients:</label>
                 <div id='new-ingredients' name='ingredients'>
-                    {newRecipe.ingredients.map( (ingredient, index) =>
-                        <div className="ingredient-input">
+                    {newRecipe.ingredients.map( (ingredient, index) => <>
+                        <div className="ingredient-input" key={`ingredient-${index}`}>
                             <input id={`ingredients-${index}`} name={`ingredients-${index}`}
                                 type="text" value={newRecipe.ingredients[index]}
-                                onChange={(e) => handleIngredientChange(e, newRecipe, setNewRecipe)}
-                                key={`ingredient-${index}`} />
+                                onChange={(e) => handleIngredientChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
                             <div className="remove-ingredient">
-                                <button onClick={() => handleRemoveIngredient(index, newRecipe, setNewRecipe)}
+                                <button onClick={() => handleRemoveIngredient(index, newRecipe, setNewRecipe, errors, setErrors)}
                                     >X</button>
                             </div>
-                            {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
                         </div>
+                        { errors.ingredients[index] && <p className='error'>{errors.ingredients[index]}</p> }</>
                     )}
                 </div>
                 <button className='add-element-button'
-                    onClick={() => handleAddIngredient(newRecipe, setNewRecipe)}
+                    onClick={() => handleAddIngredient(newRecipe, setNewRecipe, errors, setErrors)}
                     >Add Ingredient</button>
             </div>
             <div>
                 <label htmlFor="instructions">Instructions:</label>
                 <div id='new-instructions' name='instructions'>
-                    {newRecipe.instructions.map( (instruction, index) =>
-                        <div className="instruction-input">
-                            <input id={`instructions-${index}`} name={`instructions-${index}`}
-                                type="text" value={newRecipe.instructions[index]}
-                                onChange={(e) => handleInstructionChange(e, newRecipe, setNewRecipe)}
-                                key={`instruction-${index}`} />
+                    {newRecipe.instructions.map( (instruction, index) => <>
+                        <div className="instruction-input" key={`instruction-${index}`}>
+                            <textarea id={`instructions-${index}`} name={`instructions-${index}`}
+                                rows="4" value={newRecipe.instructions[index]}
+                                onChange={(e) => handleInstructionChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
                             <div className="remove-instruction">
-                                <button onClick={() => handleRemoveInstruction(index, newRecipe, setNewRecipe)}
+                                <button onClick={() => handleRemoveInstruction(index, newRecipe, setNewRecipe, errors, setErrors)}
                                     >X</button>
                             </div>
-                            {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
                         </div>
+                        { errors.instructions[index] && <p className='error'>{errors.instructions[index]}</p> } </>
                     )}
                 </div>
                 <button className='add-element-button'
-                    onClick={() => handleAddInstruction(newRecipe, setNewRecipe)}
+                    onClick={() => handleAddInstruction(newRecipe, setNewRecipe, errors, setErrors)}
                     >Add Instruction</button>
             </div>
             <div>
@@ -110,7 +111,7 @@ const NewRecipe = () => {
                         <label htmlFor="img_ref">Image URL:</label>
                         <input id="img_ref" name="img_ref" type="text"
                             value={newRecipe.img_ref === 'none' ? '' : newRecipe.img_ref}
-                            onChange={(e) => handleChange(e, newRecipe, setNewRecipe)} />
+                            onChange={(e) => handleChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
                         {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
                     </div> : null
                 }
