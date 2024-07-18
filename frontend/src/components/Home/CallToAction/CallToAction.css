@@ -1,0 +1,29 @@
+#call-to-action {
+    width: 100%;
+    padding: 0 15px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    
+    > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        text-align: center;
+
+        > a > button {
+            background-color: var(--dark);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: var(--lighter);
+            border-color: var(--lighter);
+            cursor: pointer;
+        }
+    }
+}
