@@ -1,3 +1,7 @@
+input {
+    color: var(--dark);
+}
+
 #new-recipe-heading {
     margin-top: 50px;
 }
@@ -12,6 +16,8 @@
     justify-content: center;
     gap: 20px;
 
+    color: var(--dark);
+
     > div {
         width: 100%;
         
@@ -19,4 +25,68 @@
         flex-direction: column;
         gap: 5px;
     }
+
+    > button {
+        width: 100%;
+        padding: 8px;
+        margin-top: 30px;
+
+        color: var(--dark);
+        border-color: var(--dark);
+        border-radius: 6px;
+        background-color: var(--lighter);
+    }
+}
+
+#new-ingredients, #new-instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ingredient-input, .instruction-input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    > input {
+        width: calc(100% - 25px);
+        padding: 2px;
+    }
+
+}
+
+.remove-ingredient, .remove-instruction {
+    width: 20px;
+
+    > button {
+        /* display: none; */
+        cursor: pointer;
+        
+        background-color: red;
+        opacity: .3;
+        border-radius: 10px;
+        
+        font-weight: bold;
+    }
+    
+}
+
+/* .remove-ingredient:hover {
+    > button {
+        display: block;
+    }
+} */
+
+.add-element-button {
+    width: 150px;
+
+    margin: 20px auto 0 auto;
+    padding: 5px;
+
+    color: var(--highlight);
+    border-color: var(--highlight);
+    border-radius: 6px;
+    background-color: var(--dark);
 }
