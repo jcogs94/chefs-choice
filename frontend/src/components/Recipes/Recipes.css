@@ -11,3 +11,26 @@
     justify-content: center;
     gap: 30px;
 }
+
+#add-recipe-here-container {
+    width: 100%;
+    padding: 20px 0;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    color: var(--dark);
+    background-color: var(--lighter);
+
+    > a > button {
+        cursor: pointer;
+        padding: 8px 15px;
+        background-color: var(--dark);
+        border-color: var(--highlight);
+        border-radius: 8px;
+        color: var(--lighter);
+    }
+}
