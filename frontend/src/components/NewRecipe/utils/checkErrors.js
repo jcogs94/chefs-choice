@@ -44,6 +44,19 @@ const checkErrors = ({ target }, errors, setErrors) => {
                         : ''
             })
             break
+        case 'img_ref':
+            setErrors({
+                ...errors,
+                img_ref:
+                    (target.value.length < 12 || target.value.length > 250)
+                        ? (target.value.length < 12)
+                            ? (target.value === 'none')
+                                ? ''
+                                : 'The image URL must be at least 12 characters.'
+                            : 'The image URL cannot exceed 250 characters.'
+                        :  ''
+            })
+            break
     }
 
     if (target.name.includes('ingredients')) {

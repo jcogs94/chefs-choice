@@ -56,17 +56,19 @@ const NewRecipe = () => {
             <div>
                 <label htmlFor="ingredients">Ingredients:</label>
                 <div id='new-ingredients' name='ingredients'>
-                    {newRecipe.ingredients.map( (ingredient, index) => <>
-                        <div className="ingredient-input" key={`ingredient-${index}`}>
-                            <input id={`ingredients-${index}`} name={`ingredients-${index}`}
-                                type="text" value={newRecipe.ingredients[index]}
-                                onChange={(e) => handleIngredientChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
-                            <div className="remove-ingredient">
-                                <button onClick={() => handleRemoveIngredient(index, newRecipe, setNewRecipe, errors, setErrors)}
-                                    >X</button>
+                    {newRecipe.ingredients.map( (ingredient, index) =>
+                        <div key={`ingredient-${index}`}>
+                            <div className="ingredient-input">
+                                <input id={`ingredients-${index}`} name={`ingredients-${index}`}
+                                    type="text" value={newRecipe.ingredients[index]}
+                                    onChange={(e) => handleIngredientChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
+                                <div className="remove-ingredient">
+                                    <button onClick={() => handleRemoveIngredient(index, newRecipe, setNewRecipe, errors, setErrors)}
+                                        >X</button>
+                                </div>
                             </div>
+                            { errors.ingredients[index] && <p className='error' key={`ingredient-error-${index}`}>{errors.ingredients[index]}</p> }
                         </div>
-                        { errors.ingredients[index] && <p className='error'>{errors.ingredients[index]}</p> }</>
                     )}
                 </div>
                 <button className='add-element-button'
@@ -76,17 +78,19 @@ const NewRecipe = () => {
             <div>
                 <label htmlFor="instructions">Instructions:</label>
                 <div id='new-instructions' name='instructions'>
-                    {newRecipe.instructions.map( (instruction, index) => <>
-                        <div className="instruction-input" key={`instruction-${index}`}>
-                            <textarea id={`instructions-${index}`} name={`instructions-${index}`}
-                                rows="4" value={newRecipe.instructions[index]}
-                                onChange={(e) => handleInstructionChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
-                            <div className="remove-instruction">
-                                <button onClick={() => handleRemoveInstruction(index, newRecipe, setNewRecipe, errors, setErrors)}
-                                    >X</button>
+                    {newRecipe.instructions.map( (instruction, index) =>
+                        <div key={`instruction-${index}`}>
+                            <div className="instruction-input">
+                                <textarea id={`instructions-${index}`} name={`instructions-${index}`}
+                                    rows="4" value={newRecipe.instructions[index]}
+                                    onChange={(e) => handleInstructionChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
+                                <div className="remove-instruction">
+                                    <button onClick={() => handleRemoveInstruction(index, newRecipe, setNewRecipe, errors, setErrors)}
+                                        >X</button>
+                                </div>
                             </div>
+                            { errors.instructions[index] && <p className='error' key={`instruction-error-${index}`}>{errors.instructions[index]}</p> }
                         </div>
-                        { errors.instructions[index] && <p className='error'>{errors.instructions[index]}</p> } </>
                     )}
                 </div>
                 <button className='add-element-button'
@@ -108,13 +112,13 @@ const NewRecipe = () => {
                 </div>
                 {addImg
                     ? <div id='add-img-input'>
-                        <label htmlFor="img_ref">Image URL:</label>
-                        <input id="img_ref" name="img_ref" type="text"
-                            value={newRecipe.img_ref === 'none' ? '' : newRecipe.img_ref}
-                            onChange={(e) => handleChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
-                        {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
-                    </div> : null
-                }
+                            <label htmlFor="img_ref">Image URL:</label>
+                            <input id="img_ref" name="img_ref" type="text"
+                                value={newRecipe.img_ref === 'none' ? '' : newRecipe.img_ref}
+                                onChange={(e) => handleChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
+                            { errors.img_ref && <p className='error'>{errors.img_ref}</p> }
+                        </div>
+                    : null }
             </div>
             <button type="submit">Add Recipe</button>
         </form>
