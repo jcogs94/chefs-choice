@@ -24,19 +24,30 @@ const Recipes = () => {
 
     fetchRecipes()
   }, [])
-    
+
+  if (recipes.length > 0) {
     return <>
-        <h1 id='recipes-header'>Recipes</h1>
-        <div id="add-recipe-here-container">
-          <p>Add your own recipe here:</p>
-          <Link to="/recipes/new"><button>Add Recipe</button></Link>
-        </div>
-        <div id="recipes-container">
-            {recipes.map( (recipe, index) => 
-                <RecipeCard recipe={recipe} key={index} />
-            )}
-        </div>
+      <h1 id='recipes-header'>Recipes</h1>
+      <div id="add-recipe-here-container">
+        <p>Add your own recipe here:</p>
+        <Link to="/recipes/new"><button>Add Recipe</button></Link>
+      </div>
+      <div id="recipes-container">
+        {recipes.map( (recipe, index) => 
+            <RecipeCard recipe={recipe} key={index} />
+        )}
+      </div>
     </>
+  } else {
+    return <>
+      <h1 id="recipes-header">Recipes</h1>
+      <div id="add-recipe-here-container">
+        <p>Whoops, looks like there aren't any recipes yet! Add one below!</p>
+        <Link to="/recipes/new"><button>Add Recipe</button></Link>
+      </div>
+    </>
+  }
+
 }
 
 export default Recipes
