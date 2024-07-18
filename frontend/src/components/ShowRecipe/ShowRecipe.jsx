@@ -38,16 +38,16 @@ const ShowRecipe = () => {
             <div id="ingredients">
                 <h2>Ingredients</h2>
                 <ul>
-                    {testRecipe.ingredients.map( (ingredient) => 
-                        <li>{ingredient}</li>
+                    {testRecipe.ingredients.map( (ingredient, index) => 
+                        <li key={`ingredient-${index}`}>{ingredient}</li>
                     )}
                 </ul>
             </div>
             <div id="instructions">
                 <h2>Instructions</h2>
                 <ol id="instructions-list">
-                    {testRecipe.instructions.map( (instruction) => 
-                        <li>{instruction}</li>
+                    {testRecipe.instructions.map( (instruction, index) => 
+                        <li key={`instruction-${index}`}>{instruction}</li>
                     )}
                 </ol>
             </div>
