@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import handleChange from './utils/handleChange.js'
 import handleIngredientChange from './utils/handleIngredientChange.js'
 import handleAddIngredient from './utils/handleAddIngredient.js'
@@ -15,18 +16,27 @@ const NewRecipe = () => {
         style: '',
         time_to_complete: '',
         description: '',
-        img_ref: 'none',
+        img_ref: '',
         ingredients: [''],
         instructions: ['']
     }
     
     const [addImg, setAddImg] = useState(false)
     const [errors, setErrors] = useState(initForm)
-    const [newRecipe, setNewRecipe] = useState(initForm)
-        
+    const [newRecipe, setNewRecipe] = useState({
+        ...initForm,
+        img_ref: 'none'
+    })
+    
+    const navigate = useNavigate()
+    const formHasMissingData = !Object.values(newRecipe).every(Boolean)
+    const formIsInvalid = Object.values(errors).some(
+        (error) => error && (Array.isArray(error) ? error.some(Boolean) : true)
+      );
+    
     return <>
         <h1 id='new-recipe-heading'>Add Your Recipe</h1>
-        <form onSubmit={(e) => handleSubmit(e, newRecipe, setNewRecipe)} id='new-recipe-form'>
+        <form onSubmit={(e) => handleSubmit(e, newRecipe, navigate)} id='new-recipe-form'>
             <div>
                 <label htmlFor="name">Name:</label>
                 <input id="name" name="name" type="text" value={newRecipe.name}
@@ -71,7 +81,7 @@ const NewRecipe = () => {
                         </div>
                     )}
                 </div>
-                <button className='add-element-button'
+                <button className='add-element-button' type='button'
                     onClick={() => handleAddIngredient(newRecipe, setNewRecipe, errors, setErrors)}
                     >Add Ingredient</button>
             </div>
@@ -93,7 +103,7 @@ const NewRecipe = () => {
                         </div>
                     )}
                 </div>
-                <button className='add-element-button'
+                <button className='add-element-button' type='button'
                     onClick={() => handleAddInstruction(newRecipe, setNewRecipe, errors, setErrors)}
                     >Add Instruction</button>
             </div>
@@ -120,7 +130,7 @@ const NewRecipe = () => {
                         </div>
                     : null }
             </div>
-            <button type="submit">Add Recipe</button>
+            <button type='submit' disabled={formIsInvalid || formHasMissingData}>Add Recipe</button>
         </form>
     </>
 }

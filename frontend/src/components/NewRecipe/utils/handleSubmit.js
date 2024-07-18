@@ -1,6 +1,11 @@
-const handleSubmit = (event, newRecipe, setNewRecipe) => {
+import * as recipeService from '../../../services/recipeService.js'
+
+const handleSubmit = async (event, newRecipe, navigate) => {
     event.preventDefault()
-    console.log('Form valid');
+    
+    await recipeService.create(newRecipe)
+    
+    navigate('/recipes')
 }
 
 export default handleSubmit
