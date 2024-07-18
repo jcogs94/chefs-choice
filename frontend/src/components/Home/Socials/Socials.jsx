@@ -18,7 +18,7 @@ const Socials = () => {
             <h3>Check Out Our Socials!</h3>
             <div id="social-icons">
                 {icons.map( (icon, index) => 
-                    <Link to={icon.link}><img src={icon.img} key={`icon-${index}`} /></Link>
+                    <Link to={icon.link} key={`icon-${index}`}><img src={icon.img} /></Link>
                 )}
             </div>
         </div>

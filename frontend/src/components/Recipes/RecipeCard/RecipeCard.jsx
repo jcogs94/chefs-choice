@@ -8,7 +8,7 @@ const RecipeCard = ({ recipe }) => {
             <p><b>Total Time:</b> {recipe.time_to_complete}</p>
             { recipe.img_ref !== 'none'
                 ? <img src={recipe.img_ref} alt={recipe.name} />
-                : null
+                : <div className="no-img">No Image</div>
             }
             <p>{recipe.description}</p>
         </div>
