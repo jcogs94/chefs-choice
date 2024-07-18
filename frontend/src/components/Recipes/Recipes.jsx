@@ -22,7 +22,7 @@ const Recipes = () => {
     }
 
     fetchRecipes()
-  }, []);
+  }, [])
     
     return <>
         <h1 id='recipes-header'>Recipes</h1>

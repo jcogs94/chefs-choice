@@ -35,11 +35,6 @@ const create = async (data) => {
             },
             body: JSON.stringify(data)
         })
-        
-        // // Defines an object with json response from server
-        // // (the new recipe) and returns it
-        // const createdrecipe = await res.json();
-        // return createdrecipe;
     } catch (err) {
         console.log(err)
     }
