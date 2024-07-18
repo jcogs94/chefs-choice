@@ -6,8 +6,9 @@ import './Home.css'
 const Home = () => {
     return <>
         <Hero />
-        <About />
+        <h1>Chef's Choice</h1>
         <Socials />
+        <About />
     </>
 }
 
