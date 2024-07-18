@@ -19,6 +19,7 @@ const NewRecipe = () => {
         ingredients: [''],
         instructions: ['']
     })
+    const [addImg, setAddImg] = useState(false)
         
     return <>
         <h1 id='new-recipe-heading'>Add Your Recipe</h1>
@@ -37,13 +38,15 @@ const NewRecipe = () => {
             </div>
             <div>
                 <label htmlFor="time_to_complete">Total Time:</label>
-                <input id="time_to_complete" name="time_to_complete" type="text" value={newRecipe.time_to_complete}
+                <input id="time_to_complete" name="time_to_complete" type="text"
+                    value={newRecipe.time_to_complete}
                     onChange={(e) => handleChange(e, newRecipe, setNewRecipe)} />
                 {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
             </div>
             <div>
                 <label htmlFor="description">Description:</label>
-                <input id="description" name="description" type="text" value={newRecipe.description}
+                <input id="description" name="description" type="text"
+                    value={newRecipe.description}
                     onChange={(e) => handleChange(e, newRecipe, setNewRecipe)} />
                 {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
             </div>
@@ -88,6 +91,29 @@ const NewRecipe = () => {
                 <button className='add-element-button'
                     onClick={() => handleAddInstruction(newRecipe, setNewRecipe)}
                     >Add Instruction</button>
+            </div>
+            <div>
+                <div id="add-img-prompt">
+                    <label htmlFor="add-img-radio-buttons">Add image?</label>
+                    <div id="add-img-radio-buttons">
+                        <input type="radio" name="add-img" id="add-img-yes"
+                            onChange={() => setAddImg(true)} />
+                        <label htmlFor="add-img-yes">Yes</label>
+                        <input type="radio" name="add-img" id="add-img-no"
+                            defaultChecked
+                            onChange={() => setAddImg(false)} />
+                        <label htmlFor="add-img-no">No</label>
+                    </div>
+                </div>
+                {addImg
+                    ? <div id='add-img-input'>
+                        <label htmlFor="img_ref">Image URL:</label>
+                        <input id="img_ref" name="img_ref" type="text"
+                            value={newRecipe.img_ref === 'none' ? '' : newRecipe.img_ref}
+                            onChange={(e) => handleChange(e, newRecipe, setNewRecipe)} />
+                        {/* { errors.firstName && <p className='error'>{errors.firstName}</p> } */}
+                    </div> : null
+                }
             </div>
             <button type="submit">Add Recipe</button>
         </form>

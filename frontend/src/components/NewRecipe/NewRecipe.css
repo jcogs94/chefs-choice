@@ -18,7 +18,7 @@ input {
 
     color: var(--dark);
 
-    > div {
+    > div, #add-img-input {
         width: 100%;
         
         display: flex;
@@ -89,4 +89,23 @@ input {
     border-color: var(--highlight);
     border-radius: 6px;
     background-color: var(--dark);
+}
+
+#add-img-prompt {
+    margin-top: 20px;
+    padding: 0 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#add-img-radio-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+#add-img-input {
+    margin-top: 10px;
 }
