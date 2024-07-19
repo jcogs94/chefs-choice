@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useNavigate, Link, useParams } from 'react-router-dom'
 import * as recipeService from '../../services/recipeService.js'
+import handleDelete from './utils/handleDelete.js'
 import './ShowRecipe.css'
 
 const ShowRecipe = () => {
     const { recipeId } = useParams()
+    const navigate = useNavigate()
     const [recipe, setRecipe] = useState({
         id: 0,
         name: '',
@@ -69,7 +71,7 @@ const ShowRecipe = () => {
             </div>
             <div id='delete-recipe'>
                 <p>Really hate this recipe and want to delete it?</p>
-                <button id='delete-recipe-button'>Delete Recipe</button>
+                <button id='delete-recipe-button' onClick={() => handleDelete(recipeId, navigate)}>Delete Recipe</button>
             </div>
         </div>
     </>
