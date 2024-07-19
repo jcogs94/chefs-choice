@@ -44,7 +44,7 @@ const ShowRecipe = () => {
         <div id="recipe-content">
             { recipe.img_ref !== 'none'
                 ? <img src={recipe.img_ref} alt={recipe.name} />
-                : null
+                : <div id='placeholder-img-container'><div>No Image</div></div>
             }
             <p><i>{recipe.description}</i></p>
             <div id="ingredients">

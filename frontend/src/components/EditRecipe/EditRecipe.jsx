@@ -46,6 +46,12 @@ const EditRecipe = () => {
 
         fetchRecipe()
     }, [])
+
+    useEffect(() => {
+        if (editRecipe.img_ref !== 'none') {
+            setAddImg(true)
+        }
+    }, [editRecipe.img_ref])
     
     const navigate = useNavigate()
     const formHasMissingData = !Object.values(editRecipe).every(Boolean)
@@ -131,10 +137,11 @@ const EditRecipe = () => {
                     <label htmlFor="add-img-radio-buttons">Add image?</label>
                     <div id="add-img-radio-buttons">
                         <input type="radio" name="add-img" id="add-img-yes"
+                            checked={addImg}
                             onChange={() => setAddImg(true)} />
                         <label htmlFor="add-img-yes">Yes</label>
                         <input type="radio" name="add-img" id="add-img-no"
-                            defaultChecked
+                            checked={!addImg}
                             onChange={() => setAddImg(false)} />
                         <label htmlFor="add-img-no">No</label>
                     </div>
