@@ -8,7 +8,8 @@ input {
 
 #new-recipe-form {
     width: 100%;
-    padding: 0 15px;
+    max-width: 700px;
+    padding: 0 30px;
     
     display: flex;
     flex-direction: column;
@@ -66,7 +67,6 @@ input {
     width: 20px;
 
     > button {
-        /* display: none; */
         cursor: pointer;
         
         background-color: red;
@@ -77,12 +77,6 @@ input {
     }
     
 }
-
-/* .remove-ingredient:hover {
-    > button {
-        display: block;
-    }
-} */
 
 .add-element-button {
     width: 150px;
@@ -109,6 +103,10 @@ input {
     display: flex;
     flex-direction: row;
     gap: 8px;
+
+    > input {
+        cursor: pointer;
+    }
 }
 
 #add-img-input {

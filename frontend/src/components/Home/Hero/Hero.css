@@ -1,8 +1,6 @@
 #hero {
     > img {
         width: 100%;
+        max-width: 950px;
     }
-    /* height: 200px; */
-
-    /* background-color: var(--lighter); */
 }

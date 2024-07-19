@@ -9,7 +9,8 @@
 
 #recipe-content {
     width: 100%;
-    padding: 0 15px;
+    max-width: 950px;
+    padding: 0 30px;
     
     display: flex;
     flex-direction: column;
@@ -24,6 +25,7 @@
 
 #placeholder-img-container {
     width: 100%;
+    max-width: 950px;
     height: 0;
     padding-top: 56.25%;
     position: relative;
@@ -72,6 +74,7 @@
 
 #recipe-management {
     width: 100%;
+    max-width: 950px;
     padding: 20px 15px;
     
     margin-top: 30px;
@@ -96,6 +99,7 @@
         > button, > a > button {
             padding: 10px 15px;
             border-radius: 8px;
+            cursor: pointer;
         }
     }
 }

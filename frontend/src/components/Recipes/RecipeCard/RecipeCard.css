@@ -1,6 +1,7 @@
 .recipe-card {
     width: 100%;
-    padding: 30px 15px;
+    max-width: 400px;
+    padding: 30px 20px;
 
     display: flex;
     flex-direction: column;

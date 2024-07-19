@@ -1,5 +1,6 @@
 #socials {
     width: 100%;
+    max-width: 950px;
     padding: 30px 15px;
 
     display: flex;
