@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import * as recipeService from '../../services/recipeService.js'
 import './ShowRecipe.css'
 
@@ -60,6 +60,16 @@ const ShowRecipe = () => {
                         <li key={`instruction-${index}`}>{instruction}</li>
                     )}
                 </ol>
+            </div>
+        </div>
+        <div id="recipe-management">
+            <div id='edit-recipe'>
+                <p>Need to Change something?</p>
+                <Link to={`/recipes/${recipeId}/edit`}><button id='edit-recipe-button'>Edit Recipe</button></Link>
+            </div>
+            <div id='delete-recipe'>
+                <p>Really hate this recipe and want to delete it?</p>
+                <button id='delete-recipe-button'>Delete Recipe</button>
             </div>
         </div>
     </>
