@@ -73,7 +73,7 @@ const NewRecipe = () => {
                                     type="text" value={newRecipe.ingredients[index]}
                                     onChange={(e) => handleIngredientChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
                                 <div className="remove-ingredient">
-                                    <button onClick={() => handleRemoveIngredient(index, newRecipe, setNewRecipe, errors, setErrors)}
+                                    <button type='button' onClick={() => handleRemoveIngredient(index, newRecipe, setNewRecipe, errors, setErrors)}
                                         >X</button>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@ const NewRecipe = () => {
                                     rows="4" value={newRecipe.instructions[index]}
                                     onChange={(e) => handleInstructionChange(e, newRecipe, setNewRecipe, errors, setErrors)} />
                                 <div className="remove-instruction">
-                                    <button onClick={() => handleRemoveInstruction(index, newRecipe, setNewRecipe, errors, setErrors)}
+                                    <button type='button' onClick={() => handleRemoveInstruction(index, newRecipe, setNewRecipe, errors, setErrors)}
                                         >X</button>
                                 </div>
                             </div>
